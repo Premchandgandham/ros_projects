@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <world name="default">
+     <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+       <pose>0 0 0 0 0 0</pose>
+       <uri>model://robo</uri>
+     </include>
+     <include>
+       <pose>0 0 0 0 0 0</pose>    
+       <uri>model://my_building</uri>
+     </include>   
+    <plugin name="welcome_message" filename="libwelcome_message.so"/>
+  </world>
+</sdf>
+
