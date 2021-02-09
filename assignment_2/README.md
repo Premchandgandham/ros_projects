@@ -1,11 +1,11 @@
-#Summary:
+Summary:
 1.It includes two packages drive_bot and ball_chaser to chase white ball 
 1.build a drive_bot package in workspace, which holds robot model in urdf format,model folder for building and ball model,world file and launch file
 2.build a ball_chaser package in same workspace, which holds src folder for C++ program file, srv folder service definitio and launch file
 
-##Folder content: Assignment_2:
+Folder content: Assignment_2:
   
-  ###drive_bot:
+ drive_bot:
     urdf : This folder contains differential robot file in urdf format
        trail_robo.urdf
     model : This folder contains model files 
