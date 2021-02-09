@@ -35,3 +35,18 @@ Folder content: Assignment_2:
     package.xml : to build dependencies
     
     run.sh : To run to models in gazebo
+
+
+ ball_chaser:
+ 
+    src : coontains C++ files 
+      drive_bot.cpp
+      process_image.cpp
+    srv : contains service definition files
+      DriveToTarget.srv
+    launch :  To launch both c++ files at same instant
+        ball_chaser.launch
+    CMakelist
+    Package.xml
+    
+    
