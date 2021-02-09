@@ -50,3 +50,12 @@ Folder content: Assignment_2:
     Package.xml
     
     
+Building the project
+
+Give executable permission by using chmod 777 build.sh
+
+To Run the demo
+
+Give executable permission by using the command chmod 777 run.sh
+run the run.sh file(./run.sh) to export models in gazebo
+Note: before running use cd catkin_ws/src/drive_bot
