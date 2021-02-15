@@ -11,7 +11,7 @@
        <uri>model://my_building</uri>
      </include>     
      <include>  
-     	<pose>3 0 0.25</pose>
+     	<pose>0 2 0.25</pose>
        <uri>model://ball</uri>
      </include>  
      
