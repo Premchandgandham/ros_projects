@@ -83,7 +83,7 @@
      <collision name="caster_collision">
       <origin rpy=" 0 0 0" xyz="0.15 0 -0.05"/>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.049"/>
       </geometry>
       <surface>
         <friction>
@@ -112,7 +112,7 @@
      <collision name="caster_collision2">
       <origin rpy=" 0 0 0" xyz="-0.15 0 -0.05"/>
       <geometry>
-        <sphere radius="0.05"/>
+        <sphere radius="0.049"/>
       </geometry>
       <surface>
         <friction>
@@ -351,13 +351,14 @@
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>False</visualize>
-      <update_rate>40</update_rate>
+      <update_rate>10</update_rate>
       <ray>
         <scan>
           <vertical >
             <samples>4</samples>
             <resolution>1</resolution>
             <min_angle>-0.0698132</min_angle>
+            
             <max_angle>0</max_angle>
           </vertical>
           <horizontal>

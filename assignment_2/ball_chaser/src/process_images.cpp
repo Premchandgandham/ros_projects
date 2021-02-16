@@ -1,6 +1,8 @@
 #include "ros/ros.h"
 #include "ball_chaser/DriveToTarget.h"
 #include <sensor_msgs/Image.h>
+#include <sensor_msgs/LaserScan.h>
+
 
 int k = 0;
 ros::ServiceClient client;
@@ -22,7 +24,6 @@ void drive_robot(float lin_x, float ang_z)
 
 void process_image_callback(const sensor_msgs::Image img)
 {
-  
   
   
   int white_pixel = 255;
@@ -108,7 +109,7 @@ if(found_ball) {
        else
        	{
        
-        		lin_x = 1.0;
+        		lin_x = 0.4;
         		ang_z = 0.0;
         		
         		if(ball_x < 400)
@@ -118,13 +119,34 @@ if(found_ball) {
         			
         		drive_robot(lin_x, ang_z);
         		if(!(ball_x >0 && ball_x<799)){
-        		k=0;
+        			ROS_INFO("NO BALL FOUND");	
+        			k=0;
         		}
 
        	}
        	
     }
-  
+    
+
+void scan_call_back(const sensor_msgs::LaserScan scan){
+
+/*	ROS_INFO("minimum_range = %f", scan.range_min);
+	ROS_INFO("maximum_range = %f", scan.range_max);
+	ROS_INFO("scan time = %f", scan.scan_time); 
+*/
+	int n = std::distance(std::begin(scan.ranges), std::end(scan.ranges));
+	ROS_INFO("length of the array of ranges = %d",n);
+
+	for(int i=0;i<n;i++){
+
+	if(scan.ranges[i] < 0.2){
+	
+		ROS_INFO("Obstacle is a head ");
+		drive_robot(0.0,0.0); 
+	}
+   }
+
+ } 
   
 int main(int argc, char** argv)
 {
@@ -135,6 +157,8 @@ int main(int argc, char** argv)
     client = n.serviceClient<ball_chaser::DriveToTarget>("/ball_chaser/command_robot");
 
     ros::Subscriber sub1 = n.subscribe("/camera/rgb/image_raw", 2, process_image_callback);
+    
+    ros::Subscriber sub2 = n.subscribe("hokuyo/scan",2,scan_call_back);
 
     ros::spin();
 
