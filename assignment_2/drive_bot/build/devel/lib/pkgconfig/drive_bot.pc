@@ -1,8 +1,0 @@
-prefix=/home/ros/catkin_ws/src/drive_bot/build/devel
-
-Name: drive_bot
-Description: Description of drive_bot
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
