@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<launch> 
+
+  <arg name="model" /> 
+ 
+  
+  <param name="robot_description" textfile="$(find gmapping2)/urdf/trail_robo_nav.urdf" /> 
+  
+  <param name="use_gui" value="true"/> 
+  
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> 
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> 
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find gmapping2)/urdf_nav.rviz" required="true" /> 
+  
+   
+</launch> 

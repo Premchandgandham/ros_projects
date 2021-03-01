@@ -3,7 +3,7 @@
 <launch>
 
 
-<include file="$(find drive_bot)/launch/rviz.launch"/>
+<!--<include file="$(find drive_bot)/launch/rviz.launch"/-->
 
  <arg name="world_file" default="$(find drive_bot)/world/ball_chaser.world"/>
  

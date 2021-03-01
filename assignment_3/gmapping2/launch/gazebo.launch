@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+<!--<include file="$(find gmapping2)/launch/rviz_nav.launch"/>-->
+
+<include file="$(find gmapping2)/launch/gmapping.launch"/>
+
+ <arg name="world_file" default="$(find gmapping2)/world/gmapping.world"/>
+ 
+ <include file="$(find gazebo_ros)/launch/empty_world.launch">
+ 
+ <arg name="use_sim_time" value="true"/>
+    <arg name="debug" value="false"/>
+    <arg name="gui" value="true" />
+    <arg name="world_name" value="$(arg world_file)"/>
+  </include>
+   
+ <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find gmapping2)/urdf/trail_robo_nav.urdf -urdf -z 1 -model trail_robo_nav" />
+ 
+ </launch>
